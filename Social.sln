@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Social.Core.Domain", "Social.Core.Domain\Social.Core.Domain.csproj", "{3D18FBCB-0F73-4AFA-8A4F-099669430C1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F955341A-ED86-4C52-835A-07F96071AF61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DA65246D-95A2-465D-87D6-55F0398151DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{2551B061-8D8E-4D48-8300-D723629745D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D18FBCB-0F73-4AFA-8A4F-099669430C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D18FBCB-0F73-4AFA-8A4F-099669430C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D18FBCB-0F73-4AFA-8A4F-099669430C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D18FBCB-0F73-4AFA-8A4F-099669430C1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D18FBCB-0F73-4AFA-8A4F-099669430C1F} = {F955341A-ED86-4C52-835A-07F96071AF61}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8620C76C-2464-4EF4-AD56-3A3BA98A20C9}
+	EndGlobalSection
+EndGlobal
