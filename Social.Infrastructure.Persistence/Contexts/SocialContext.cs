@@ -60,6 +60,17 @@ namespace Social.Infrastructure.Persistence.Contexts
                 model.ToTable("ReplyComments");
                 model.HasKey(k => k.Id);
                 model.Property(p => p.Content).IsRequired();
+
+                //Relaciones
+                model.HasOne(fk => fk.User)
+                    .WithMany(_fk => _fk.ReplyComments)
+                    .HasForeignKey(f => f.UserId)
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                model.HasOne(fk => fk.Comment)
+                    .WithMany(_fk => _fk.Replys)
+                    .HasForeignKey(f => f.CommentId)
+                        .OnDelete(DeleteBehavior.Cascade);
             });
             #endregion
 
@@ -110,6 +121,24 @@ namespace Social.Infrastructure.Persistence.Contexts
             modelBuilder.Entity<Comment>(model =>
             {
                 model.ToTable("Comments");
+                model.HasKey(k => k.Id);
+                model.Property(p => p.Content).IsRequired().HasMaxLength(400);
+
+                //Relaciones
+                model.HasOne(fk => fk.User)
+                    .WithMany(_fk => _fk.Comments)
+                    .HasForeignKey(f => f.UserId)
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                model.HasOne(fk => fk.Post)
+                    .WithMany(_fk => _fk.Comments)
+                    .HasForeignKey(f => f.PostId)
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                model.HasMany(fk => fk.Replys)
+                    .WithOne(_fk => _fk.Comment)
+                    .HasForeignKey(p => p.CommentId)
+                        .OnDelete(DeleteBehavior.Cascade);
             });
             #endregion
 
