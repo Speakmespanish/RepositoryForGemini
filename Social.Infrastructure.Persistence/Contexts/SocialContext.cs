@@ -58,6 +58,8 @@ namespace Social.Infrastructure.Persistence.Contexts
             modelBuilder.Entity<ReplyComment>(model =>
             {
                 model.ToTable("ReplyComments");
+                model.HasKey(k => k.Id);
+                model.Property(p => p.Content).IsRequired();
             });
             #endregion
 
@@ -66,6 +68,20 @@ namespace Social.Infrastructure.Persistence.Contexts
             modelBuilder.Entity<Post>(model =>
             {
                 model.ToTable("Posts");
+                model.HasKey(k => k.Id);
+                model.Property(p => p.Title).IsRequired().HasMaxLength(50);
+                model.Property(p => p.Content).HasMaxLength(750);
+
+                //Relaciones
+                model.HasOne(fk => fk.User)
+                    .WithMany(_fk => _fk.Posts)
+                    .HasForeignKey(f => f.UserId)
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                model.HasMany(fk => fk.Comments)
+                    .WithOne(_fk => _fk.Post)
+                    .HasForeignKey(f => f.PostId)
+                        .OnDelete(DeleteBehavior.Cascade);
             });
             #endregion
 
@@ -74,6 +90,18 @@ namespace Social.Infrastructure.Persistence.Contexts
             modelBuilder.Entity<Friendship>(model =>
             {
                 model.ToTable("Friendships");
+                model.HasKey(k => k.Id);
+
+                //Relaciones
+                model.HasOne(fk => fk.User1)
+                    .WithMany(_fk => _fk.Friendships)
+                    .HasForeignKey(f => f.User1Id)
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                model.HasOne(fk => fk.User2)
+                    .WithMany(_fk => _fk.Friendships)
+                    .HasForeignKey(f => f.User2Id)
+                        .OnDelete(DeleteBehavior.Cascade);
             });
             #endregion
 

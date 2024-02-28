@@ -18,10 +18,10 @@
 
         public string ImagePath { get; set; }
 
-        public ICollection<User> RequestFriend { get; set; }
+        public ICollection<User> RequestFriend { get; set; }        //Solicitudes de amistades recibidas
 
         //Relaciones
-        public ICollection<Friendship> Friendships { get; set; }
+        public ICollection<Friendship> Friendships { get; set; }    //Amistades hechas ya sea por aceptacion del usuario o del otro usuario que tuvo dicha solicitud en RequestFriend
 
         public ICollection<Post> Posts { get; set; }
 
