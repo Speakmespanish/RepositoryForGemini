@@ -18,6 +18,8 @@
 
         public string ImagePath { get; set; }
 
+        public bool Status { get; set; }
+
         public ICollection<User> RequestFriend { get; set; }        //Solicitudes de amistades recibidas
 
         //Relaciones

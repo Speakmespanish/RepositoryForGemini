@@ -19,6 +19,8 @@ namespace Social.Core.Application.ViewModels.User
 
         public string ImagePath { get; set; }
 
+        public bool Status { get; set; }
+
         public ICollection<GetUser_vm> RequestFriend { get; set; }        //Solicitudes de amistades recibidas
 
         public ICollection<GetFriendship_vm> Friendships { get; set; }    //Amistades hechas ya sea por aceptacion del usuario o del otro usuario que tuvo dicha solicitud en RequestFriend
